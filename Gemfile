@@ -6,6 +6,6 @@ gem "activerecord"
 gem "sinatra-activerecord"
 gem "sinatra-contrib"
 
-group :develompent 
-	gem "tux"	
+group :develompent do
+	gem "tux"
 end
