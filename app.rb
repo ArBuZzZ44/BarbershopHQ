@@ -51,7 +51,12 @@ post '/Visit' do
 		end
 	end
 
+	@title = 'Спасибо!'
+	@message = "Уважаемый #{@username}, мы будем ждать вас в #{@date}, мастер: #{@barber}, цвет: #{@color}"
+	
 	Client.create :name => @username, :phone => @phone, :datestamp => @date, :barber => @barber, :color => @color
+
+	erb :message
 
 	
 end
