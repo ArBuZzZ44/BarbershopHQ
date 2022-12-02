@@ -51,5 +51,7 @@ post '/Visit' do
 		end
 	end
 
+	Client.create :name => @username, :phone => @phone, :datestamp => @date, :barber => @barber, :color => @color
+
 	
 end
