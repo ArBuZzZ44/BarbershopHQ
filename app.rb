@@ -64,10 +64,10 @@ end
 
 post '/Contacts' do 
 	@mail = params[:mail]
-	@blank = params[:blank]
+	@report = params[:report]
 
 	hh = {mail: 'Введите почтовый адрес',
-		blank: 'Введите сообщение'}
+		report: 'Введите сообщение'}
 
 	hh.each do |key, value|
 		if params[key] == ''
@@ -78,6 +78,8 @@ post '/Contacts' do
 
 	@title = 'Мы приняли ваше сообщение'
 	@message = 'Постараемся с вами связаться по вашему вопросу как можно скорее'
+
+	Contact.create :mail => @mail, :report => @report
 
 	erb :message
 end
