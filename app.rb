@@ -30,10 +30,6 @@ get '/Visit' do
 	erb :visit
 end
 
-get '/Contacts' do 
-	erb :contacts
-end
-
 post '/Visit' do
 	@username = params[:username]
 	@phone = params[:phone]
@@ -59,6 +55,10 @@ post '/Visit' do
 	erb :message	
 end
 
+get '/Contacts' do 
+	erb :contacts
+end
+
 post '/Contacts' do 
 	@mail = params[:mail]
 	@blank = params[:blank]
@@ -77,4 +77,8 @@ post '/Contacts' do
 	@message = 'Постараемся с вами связаться по вашему вопросу как можно скорее'
 
 	erb :message
+end
+
+get '/About' do
+	erb :about
 end
