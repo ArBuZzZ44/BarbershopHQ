@@ -53,10 +53,28 @@ post '/Visit' do
 
 	@title = 'Спасибо!'
 	@message = "Уважаемый #{@username}, мы будем ждать вас в #{@date}, мастер: #{@barber}, цвет: #{@color}"
-	
+
 	Client.create :name => @username, :phone => @phone, :datestamp => @date, :barber => @barber, :color => @color
 
-	erb :message
+	erb :message	
+end
 
-	
+post '/Contacts' do 
+	@mail = params[:mail]
+	@blank = params[:blank]
+
+	hh = {mail: 'Введите почтовый адрес',
+		blank: 'Введите сообщение'}
+
+	hh.each do |key, value|
+		if params[key] == ''
+			@error = hh[key]
+			return erb :contacts
+		end
+	end
+
+	@title = 'Мы приняли ваше сообщение'
+	@message = 'Постараемся с вами связаться по вашему вопросу как можно скорее'
+
+	erb :message
 end
