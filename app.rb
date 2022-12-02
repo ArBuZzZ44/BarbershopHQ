@@ -17,6 +17,9 @@ end
 class Barber < ActiveRecord::Base
 end
 
+class Contact < ActiveRecord::Base
+end
+
 before do
 	@barbers = Barber.all	
 	#@barbers = Barber.order "created_at desc"
