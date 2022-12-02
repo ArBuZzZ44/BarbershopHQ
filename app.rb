@@ -4,9 +4,14 @@ require 'sinatra'
 require 'sinatra/reloader'
 require 'sinatra/activerecord'
 
+#ORM - object relational mapper (mapping) - связка ООП с реляционными БД.
+
 set :database, {adapter: "sqlite3", database: "barbershop.db"}
 
 class Client < ActiveRecord::Base 
+end
+
+class Barber < ActiveRecord::Base
 end
 
 get '/' do
