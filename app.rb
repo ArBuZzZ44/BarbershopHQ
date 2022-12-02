@@ -17,8 +17,39 @@ end
 class Barber < ActiveRecord::Base
 end
 
-get '/' do
-	@barbers = Barber.all
+before do
+	@barbers = Barber.all	
 	#@barbers = Barber.order "created_at desc"
+end
+
+get '/' do
 	erb :index
+end
+
+get '/Visit' do 
+	erb :visit
+end
+
+get '/Contacts' do 
+	erb :contacts
+end
+
+post '/Visit' do
+	@username = params[:username]
+	@phone = params[:phone]
+	@date = params[:date]
+	@barber = params[:barber]
+	@color = params[:colorpicker]
+
+	hh = {username: 'Введите имя',
+	 	 phone:'Введите телефон',
+	  	 date:'Введите дату и время'}
+	hh.each do |key, value|
+		if params[key] == ''
+			@error = hh[key]
+			return erb :visit
+		end
+	end
+
+	
 end
