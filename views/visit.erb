@@ -11,15 +11,15 @@
 <form action="/Visit" method="POST" role="form">
   <div class="form-group">
     <label>Ваше имя</label>
-    <input type="text" name="client[name]" class="form-control"  placeholder="Введите ваше имя" value="">
+    <input type="text" name="client[name]" class="form-control"  placeholder="Введите ваше имя" value="<%= @c.name %>">
   </div>
   <div class="form-group">
     <label>Номер телефона</label>
-    <input type="text" name="client[phone]" class="form-control"  placeholder="Введите телефон" value="">
+    <input type="text" name="client[phone]" class="form-control"  placeholder="Введите телефон" value="<%= @c.phone %>">
   </div>
   <div class="form-group">
     <label>Когда вас ждать?</label>
-    <input id="datetimepicker" type="text" name="client[datestamp]" class="form-control"  placeholder="Введите дату и время" value="">
+    <input id="datetimepicker" type="text" name="client[datestamp]" class="form-control"  placeholder="Введите дату и время" value="<%= @c.datestamp %>">
   </div>
   
   <div class="form-group">
