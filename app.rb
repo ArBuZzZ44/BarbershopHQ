@@ -34,26 +34,10 @@ get '/Visit' do
 end
 
 post '/Visit' do
-	@username = params[:username]
-	@phone = params[:phone]
-	@date = params[:date]
-	@barber = params[:barber]
-	@color = params[:colorpicker]
-
-	hh = {username: 'Введите имя',
-	 	 phone:'Введите телефон',
-	  	 date:'Введите дату и время'}
-	hh.each do |key, value|
-		if params[key] == ''
-			@error = hh[key]
-			return erb :visit
-		end
-	end
+	c = Client.new params[:client]
+	c.save
 
 	@title = 'Спасибо!'
-	@message = "Уважаемый #{@username}, мы будем ждать вас в #{@date}, мастер: #{@barber}, цвет: #{@color}"
-
-	Client.create :name => @username, :phone => @phone, :datestamp => @date, :barber => @barber, :color => @color
 
 	erb :message	
 end

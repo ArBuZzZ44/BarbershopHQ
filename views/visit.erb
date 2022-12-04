@@ -3,7 +3,7 @@
 
 <script type="text/javascript"> //правильный вариант записи jquery на странице через function. если пишем без jquery, то просто чистый js код
   $(function(){                 //исполняется после загрузки страницы, чтобы сначала загрузился jq, а потом js к нему обратился
-    $('select[name="colorpicker"]').simplecolorpicker();
+    $('select[name="client[color]"]').simplecolorpicker();
     $('#datetimepicker').datetimepicker();
   });
 </script>
@@ -11,27 +11,20 @@
 <form action="/Visit" method="POST" role="form">
   <div class="form-group">
     <label>Ваше имя</label>
-    <input type="text" name="username" class="form-control"  placeholder="Введите ваше имя" value="<%= @username %>">
+    <input type="text" name="client[name]" class="form-control"  placeholder="Введите ваше имя" value="">
   </div>
   <div class="form-group">
     <label>Номер телефона</label>
-    <input type="text" name="phone" class="form-control"  placeholder="Введите телефон" value="<%= @phone %>">
+    <input type="text" name="client[phone]" class="form-control"  placeholder="Введите телефон" value="">
   </div>
   <div class="form-group">
     <label>Когда вас ждать?</label>
-    <input id="datetimepicker" type="text" name="date" class="form-control"  placeholder="Введите дату и время" value="<%= @date %>">
+    <input id="datetimepicker" type="text" name="client[datestamp]" class="form-control"  placeholder="Введите дату и время" value="">
   </div>
-  <div class="form-group">
-    <select class="form-select" name="barber">
-      <option selected>Выбор парикмахера</option>
-      <% @barbers.each do |item| %>
-        <option <%= @barber == item['name'] ? 'selected' : '' %>><%= item['name'] %></option>
-      <% end %>
-    </select>
-  </div>
+  
   <div class="form-group">
     <label>Выберите цвет покраски:</label>
-    <select name="colorpicker">
+    <select name="client[color]">
       <option value="#7bd148">Green</option>
       <option value="#5484ed">Bold blue</option>
       <option value="#a4bdfc">Blue</option>
