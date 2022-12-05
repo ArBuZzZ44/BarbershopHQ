@@ -21,6 +21,14 @@
     <label>Когда вас ждать?</label>
     <input id="datetimepicker" type="text" name="client[datestamp]" class="form-control"  placeholder="Введите дату и время" value="<%= @c.datestamp %>">
   </div>
+  <label>Парикмахер:</label>
+  <div class="form-group">
+    <select class="form-select" name="client[barber]">
+      <% @barbers.each do |barber| %>
+        <option <%= barber == barber['name'] ? 'selected' : '' %>><%= barber['name'] %></option>
+      <% end %>
+    </select>
+  </div>
   
   <div class="form-group">
     <label>Выберите цвет покраски:</label>
